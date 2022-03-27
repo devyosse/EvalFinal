@@ -12,5 +12,5 @@ $articles = ArticleManager::getAllArticles();
 <?php foreach($articles as $article) {?>
     <h2><?= $article->title ?></h2>
     <time><?= $article->date_add ?></time>
-    <p><a href="/../View/article.php?id=<?= $article->id ?>">Lire la suite</a></p>
+    <p><a href="/View/article.php?id=<?= $article->id ?>">Lire la suite</a></p>
 <?php } ?>

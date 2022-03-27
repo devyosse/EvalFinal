@@ -76,9 +76,9 @@ if (!empty($errors)){
 
     <label for="comment">Commentaire :</label>
     <br>
-    <p><textarea name="comment" id="comment-id" cols="30" rows="10"><?php if (isset($comment)) echo $comment ?></textarea></p>
+    <p><textarea name="comment" id="comment-id"><?php if (isset($comment)) echo $comment ?></textarea></p>
 
-    <input type="submit" value="send" name="btn-form">
+    <input type="submit" value="send" name="btnform">
 </form>
 
 <h2>Commentaires</h2>
