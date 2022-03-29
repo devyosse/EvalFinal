@@ -48,10 +48,9 @@ require_once (__DIR__ . '/../includes.php');
             $token = FunctionManager::str_random(60);
             $req->execute([$_POST['username'], $password, $_POST['mail'], $token]);
             $user_id = $pdo->lastInsertId();
-            mail($_POST['mail'], 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien\n\nhttp://localhost:8000/public/confirm.php?id=$user_id&token=$token");
 
             //CHECK LE LIEN BRO
-            header('Location: /public/connexion.php.php');
+            header('Location: /Public/connexion.php');
             exit();
         }
         die("Votre compte à bien été créé !");

@@ -18,6 +18,7 @@
                 <a class="" href="/Public/article.php">Articles</a>
                 <a class="" href="/Public/connexion.php">Connexion</a>
                 <a class="" href="/Public/inscription.php">Inscription</a>
+                <a href="/Admin/home.php">AdminPage</a>
             </nav>
         </div>
     </header>

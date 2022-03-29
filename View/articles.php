@@ -1,6 +1,5 @@
 <?php
 
-use App\Config\FunctionManager;
 use App\Manager\ArticleManager;
 use App\Manager\CommentManager;
 

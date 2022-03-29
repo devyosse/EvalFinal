@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Manager;
 
 use App\config\Connect;
@@ -18,17 +19,39 @@ class ArticleManager
 
 
 //recover an article
-    public static function getArticle($id){
+    public static function getArticle($id)
+    {
         $req = Connect::getPDO()->prepare('SELECT * FROM articles WHERE id = ?');
         $req->execute(array($id));
 
-        if ($req->rowCount() == 1){
+        if ($req->rowCount() == 1) {
             $data = $req->fetch(PDO::FETCH_OBJ);
             return $data;
-        }
-        else{
+        } else {
             header('Location: index.php');
             $req->closeCursor();
         }
     }
+
+
+    public function addNewArticle($article): bool
+    {
+        $stmt = Connect::getPDO()->prepare("
+            INSERT INTO articles (title, content, date_add) VALUES (:title, :content, :date_add)
+        ");
+
+        $stmt->bindValue(':title', $article->getTitle());
+        $stmt->bindValue(':content', $article->getContent());
+        $stmt->bindValue(':date_add', $article->getDate());
+
+        $result = $stmt->execute();
+        $article->setId(Connect::getPDO()->lastInsertId());
+        return $result;
+    }
+
+
+public function deleteArticle($article)
+{
+    return Connect::getPDO()->exec("DELETE FROM  articles (title, content, date_add) VALUES (:title, :content, :date_add)");
+}
 }
